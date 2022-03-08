@@ -17,7 +17,7 @@ def scan_destination_for_mp4_files():
 
 def extract_data_from_mp4_for_all_files_in_the_folder(self):
     """
-    extracting all meta data from source files
+    extracting all meta data from source files via exiftool
     :param self:
     :return:
     """
@@ -29,7 +29,9 @@ def extract_data_from_mp4_for_all_files_in_the_folder(self):
     for thread in threads:
         thread.start()
 
-def raw_data_file_hanling
+
+
+def raw_data_file_hanling():
     pass
 
 def text_file_handling(file):

@@ -10,7 +10,10 @@ import mission
 class Controller:
 
     def __init__(self, action):
-
+        """
+        The constructor push to stack threads when the structure is: [<boolean variable - for define ability of parallel execution> , <the thread with parameters> ]
+        :param action: string - action identifier
+        """
         if action in "extract telemetry from mp4":
 
             header.stack.append([True, threading.Thread(target=mission.scan_destination_for_mp4_files)])
@@ -20,7 +23,7 @@ class Controller:
 
     def execute(self):
         """
-        executin of all threads in the stack according to base flag
+        execution of all threads in the stack according to base flag
         :return: void
         """
         for thread in header.stack:
