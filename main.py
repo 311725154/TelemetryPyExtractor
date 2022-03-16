@@ -1,5 +1,6 @@
-
+import os.path
 import tkinter as tk
+from tkinter import messagebox as tkmsg
 from tkinter import ttk
 import header
 import controler
@@ -10,9 +11,17 @@ def extract():
     action function for extract button
     :return: void
     """
-    header.source_folder_path = folder_path.get()
+
     # "extract telemetry from mp4"
-    print("test: "+header.source_folder_path)
+    try:
+        header.source_folder_path = os.path.isdir(folder_path.get())
+    except NotADirectoryError:
+        tkmsg.showerror("Source Error", "There is no Folder or path: {} \nplease insert correct oath and try again!".format(folder_path.get()))
+    except OSError:
+        tkmsg.showerror("Permissions Error", "You have no permission to read or write to this destination.\nPlease try other path or contact system administrator.")
+
+    if header.source_folder_path:
+        controler.Controller
 
 
 if __name__ == '__main__':
